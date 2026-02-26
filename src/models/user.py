@@ -1,12 +1,13 @@
 from datetime import datetime
 from decimal import Decimal
 
-from common.constants import USERNAME_LENGTH
-from common.enums import UserRole
-from models.base import Base, HasId
 from sqlalchemy import BigInteger, Boolean, CheckConstraint, DateTime, Numeric, String, func
 from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column
+
+from common.constants import USERNAME_LENGTH
+from common.enums import UserRole
+from models.base import Base, HasId
 
 
 class User(Base, HasId):

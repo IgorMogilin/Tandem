@@ -42,6 +42,10 @@ exclude = [".venv", ".git", "migrations/versions"]
 select = ["E", "E501", "F", "I", "B", "UP", "ANN"]
 ignore = ["ANN101", "ANN102"]
 
+[tool.ruff.lint.isort]
+known-first-party = ["common", "models", "src"]
+known-third-party = ["sqlalchemy", "alembic", "fastapi", "pydantic", "asyncpg", "strenum"]
+
 [tool.mypy]
 python_version = "3.11"
 warn_return_any = true

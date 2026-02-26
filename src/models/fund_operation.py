@@ -1,12 +1,12 @@
 from datetime import datetime
 from decimal import Decimal
 
-from common.constants import AMOUNT_ACCURANCY, BANK_COMMENT_LENGTH
-from common.enums import OperationType
 from sqlalchemy import UUID, CheckConstraint, DateTime, ForeignKey, Numeric, String, func
 from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column
 
+from common.constants import AMOUNT_ACCURANCY, BANK_COMMENT_LENGTH
+from common.enums import OperationType
 from src.models.base import Base, HasId
 
 
