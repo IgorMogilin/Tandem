@@ -7,7 +7,8 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from common.constants import AMOUNT_ACCURANCY, BANK_COMMENT_LENGTH
 from common.enums import OperationType
-from src.models.base import Base, HasId
+
+from .base import Base, HasId
 
 
 class FundOperation(Base, HasId):
@@ -25,7 +26,7 @@ class FundOperation(Base, HasId):
     )
     payer_id: Mapped[str] = mapped_column(
         UUID(as_uuid=False),
-        ForeignKey("users.id", ondelete="RESTRICT"),
+        ForeignKey("user.id", ondelete="RESTRICT"),
         comment="Ссылка на ID пользователя, сделавшего транзакцию",
     )
     amount: Mapped[Decimal] = mapped_column(
@@ -33,4 +34,4 @@ class FundOperation(Base, HasId):
     )
     operation_text: Mapped[str | None] = mapped_column(String(BANK_COMMENT_LENGTH), comment="Комментарий к транзакции")
 
-    __table_args__ = CheckConstraint("amount >= 0", name="check_amount_non_negative")
+    __table_args__ = (CheckConstraint("amount >= 0", name="check_amount_non_negative"),)

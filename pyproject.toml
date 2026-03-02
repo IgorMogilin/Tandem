@@ -19,6 +19,7 @@ dependencies = [
     "sqlalchemy>=2.0.46",
     "uvicorn[standard]>=0.41.0",
     "strenum>=0.4.15",
+    "psycopg2-binary>=2.9.11",
 ]
 
 [tool.uv]

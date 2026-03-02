@@ -5,9 +5,10 @@ from sqlalchemy import BigInteger, Boolean, CheckConstraint, DateTime, Numeric, 
 from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column
 
-from common.constants import USERNAME_LENGTH
+from common.constants import AMOUNT_ACCURANCY, USERNAME_LENGTH
 from common.enums import UserRole
-from models.base import Base, HasId
+
+from .base import Base, HasId
 
 
 class User(Base, HasId):
@@ -26,7 +27,7 @@ class User(Base, HasId):
         comment="Доля пользователя в общем фонде (сумма всех начислений)",
     )
     duty: Mapped[Decimal] = mapped_column(
-        Numeric(10, 2),
+        Numeric(*AMOUNT_ACCURANCY),
         default=Decimal("0.00"),
         server_default="0.00",
         comment="Долг пользователя в общий фонд",
