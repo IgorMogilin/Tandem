@@ -1,8 +1,14 @@
 from pydantic import Field
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
     DB_USER: str = Field(description="Пользователь", default="postgres", examples=["postgres"])
     DB_PASS: str = Field(description="Пароль", default="postgres", examples=["postgres"])
     DB_HOST: str = Field(description="Адрес хоста", default="localhost", examples=["localhost"])

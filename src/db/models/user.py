@@ -5,8 +5,8 @@ from sqlalchemy import BigInteger, Boolean, CheckConstraint, DateTime, Numeric, 
 from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column
 
-from common.constants import AMOUNT_ACCURANCY, USERNAME_LENGTH
-from common.enums import UserRole
+from src.common.constants import AMOUNT_ACCURANCY, USERNAME_LENGTH
+from src.common.enums import UserRole
 
 from .base import Base, HasId
 

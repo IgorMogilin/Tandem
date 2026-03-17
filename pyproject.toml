@@ -25,6 +25,12 @@ dependencies = [
 [tool.uv]
 default-groups = ["dev"]
 
+[tool.taskipy.tasks]
+dev = "uvicorn src.api.main:app --reload --port 9000"
+migrate = "alembic upgrade head"
+rollback = "alembic downgrade -1"
+makemigrations = "alembic revision --autogenerate -m"
+
 [dependency-groups]
 dev = [
     "pre-commit>=3.6.0",
@@ -32,6 +38,7 @@ dev = [
     "mypy>=1.8.0",
     "pytest>=7.4.0",
     "pytest-asyncio>=0.23.0",
+    "taskipy>=1.14.1",
 ]
 
 [tool.ruff]

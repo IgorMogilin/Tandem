@@ -5,8 +5,8 @@ from sqlalchemy import UUID, CheckConstraint, DateTime, ForeignKey, Numeric, Str
 from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column
 
-from common.constants import AMOUNT_ACCURANCY, BANK_COMMENT_LENGTH
-from common.enums import OperationType
+from src.common.constants import AMOUNT_ACCURANCY, BANK_COMMENT_LENGTH
+from src.common.enums import OperationType
 
 from .base import Base, HasId
 
